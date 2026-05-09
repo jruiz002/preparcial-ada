@@ -14,7 +14,13 @@ def find_pairs(nums: list[int], target: int) -> list[tuple[int, int]]:
 
 # --- Tests ---
 if __name__ == "__main__":
-    assert sorted(find_pairs([2, 7, 4, 1, 3], 5)) == sorted([(2, 3), (4, 1)])
-    assert find_pairs([1, 2, 3], 10) == []
-    assert sorted(find_pairs([5, 5, 3, 7], 10)) == sorted([(5, 5), (3, 7)])
-    print("Exercise 1 tests passed successfully!")
+    tests = [
+        ([2, 7, 4, 1, 3], 5, [(2, 3), (4, 1)]),
+        ([1, 2, 3], 10, []),
+        ([5, 5, 3, 7], 10, [(5, 5), (3, 7)])
+    ]
+    for nums, target, expected in tests:
+        result = find_pairs(nums, target)
+        assert sorted(result) == sorted(expected), f"Failed for {nums} with target {target}. Expected {expected}, got {result}"
+        print(f"Passed: nums={nums}, target={target} -> {result}")
+    print("All Exercise 1 tests passed successfully!")

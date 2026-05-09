@@ -10,8 +10,14 @@ def fib(n: int) -> int:
 
 # --- Tests ---
 if __name__ == "__main__":
-    assert fib(0) == 0
-    assert fib(1) == 1
-    assert fib(10) == 55
-    assert fib(30) == 832040
-    print("Exercise 2 tests passed successfully!")
+    tests = [
+        (0, 0),
+        (1, 1),
+        (10, 55),
+        (30, 832040)
+    ]
+    for n, expected in tests:
+        result = fib(n)
+        assert result == expected, f"Failed for fib({n}). Expected {expected}, got {result}"
+        print(f"Passed: fib({n}) == {result}")
+    print("All Exercise 2 tests passed successfully!")

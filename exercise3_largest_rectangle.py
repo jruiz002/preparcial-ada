@@ -17,9 +17,15 @@ def largest_rectangle(heights: list[int]) -> int:
 
 # --- Tests ---
 if __name__ == "__main__":
-    assert largest_rectangle([2, 1, 5, 6, 2, 3]) == 10
-    assert largest_rectangle([2, 4]) == 4
-    assert largest_rectangle([1]) == 1
-    assert largest_rectangle([0, 0, 0]) == 0
-    assert largest_rectangle([6, 2, 5, 4, 5, 1, 6]) == 12
-    print("Exercise 3 tests passed successfully!")
+    tests = [
+        ([2, 1, 5, 6, 2, 3], 10),
+        ([2, 4], 4),
+        ([1], 1),
+        ([0, 0, 0], 0),
+        ([6, 2, 5, 4, 5, 1, 6], 12)
+    ]
+    for heights, expected in tests:
+        result = largest_rectangle(heights)
+        assert result == expected, f"Failed for {heights}. Expected {expected}, got {result}"
+        print(f"Passed: largest_rectangle({heights}) == {result}")
+    print("All Exercise 3 tests passed successfully!")

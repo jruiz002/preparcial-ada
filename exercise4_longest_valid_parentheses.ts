@@ -21,9 +21,17 @@ export function longestValidParentheses(s: string): number {
 }
 
 // --- Tests ---
-assert.strictEqual(longestValidParentheses("(()"), 2);
-assert.strictEqual(longestValidParentheses(")()())"), 4);
-assert.strictEqual(longestValidParentheses(""), 0);
-assert.strictEqual(longestValidParentheses("()(()"), 2);
-assert.strictEqual(longestValidParentheses("(()())"), 6);
-console.log("Exercise 4 tests passed successfully!");
+const tests = [
+    { input: "(()", expected: 2 },
+    { input: ")()())", expected: 4 },
+    { input: "", expected: 0 },
+    { input: "()(()", expected: 2 },
+    { input: "(()())", expected: 6 }
+];
+
+for (const { input, expected } of tests) {
+    const result = longestValidParentheses(input);
+    assert.strictEqual(result, expected, `Failed for input "${input}". Expected ${expected}, got ${result}`);
+    console.log(`Passed: longestValidParentheses("${input}") === ${result}`);
+}
+console.log("All Exercise 4 tests passed successfully!");
